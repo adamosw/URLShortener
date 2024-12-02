@@ -10,5 +10,12 @@ namespace Abat.URLShortener.Infrastructure
 		}
 
 		public DbSet<ShortenedUrl> ShortenedUrls { get; set; }
+
+		protected override void OnModelCreating(ModelBuilder builder)
+		{
+			builder.Entity<ShortenedUrl>()
+				.HasIndex(u => u.ShortUrlIdentifier)
+				.IsUnique();
+		}
 	}
 }
