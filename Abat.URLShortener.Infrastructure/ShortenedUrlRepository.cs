@@ -13,10 +13,18 @@ namespace Abat.URLShortener.Infrastructure
 			_context = context;
         }
 
-        public async Task AddAsync(ShortenedUrl shortenedUrl)
+        public async Task<string> AddAsync(ShortenedUrl shortenedUrl)
 		{
+			var exisitingUrl = await _context.ShortenedUrls.SingleOrDefaultAsync(x => x.ShortUrlIdentifier == shortenedUrl.ShortUrlIdentifier);
+			if (exisitingUrl != null)
+			{
+				throw new Exception("Url identifier already found.");
+			}
+
 			await _context.ShortenedUrls.AddAsync(shortenedUrl);
 			await _context.SaveChangesAsync();
+
+			return shortenedUrl.ShortUrlIdentifier;
 		}
 
 		public async Task DeleteAsync(int id)

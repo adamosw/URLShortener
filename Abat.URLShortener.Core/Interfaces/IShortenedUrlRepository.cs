@@ -4,7 +4,7 @@ namespace Abat.URLShortener.Core.Interfaces
 {
 	public interface IShortenedUrlRepository
 	{
-		Task AddAsync(ShortenedUrl shortenedUrl);
+		Task<string> AddAsync(ShortenedUrl shortenedUrl);
 		Task DeleteAsync(int id);
 		Task<ShortenedUrl?> GetAsync(string shortenedUrlIdentifier);
 	}
