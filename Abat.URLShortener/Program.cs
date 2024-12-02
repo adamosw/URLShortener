@@ -1,6 +1,7 @@
 
 using Abat.URLShortener.Core.Interfaces;
-using Abat.URLShortener.Core.Services;
+using Abat.URLShortener.Infrastructure;
+using Microsoft.EntityFrameworkCore;
 
 namespace Abat.URLShortener
 {
@@ -17,7 +18,10 @@ namespace Abat.URLShortener
 			builder.Services.AddEndpointsApiExplorer();
 			builder.Services.AddSwaggerGen();
 
-			builder.Services.AddScoped<IShortenedUrlService, ShortenedUrlService>();
+			builder.Services.AddDbContext<UrlShortenerContext>(options =>
+				options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+			builder.Services.AddScoped<IShortenedUrlRepository, ShortenedUrlRepository>();
 
 			var app = builder.Build();
 

@@ -1,5 +1,5 @@
-﻿using Abat.URLShortener.Core.Entities;
-using Abat.URLShortener.Core.Interfaces;
+﻿using Abat.URLShortener.Core.Interfaces;
+using Abat.URLShortener.DTOs;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Abat.URLShortener.Controllers
@@ -7,23 +7,23 @@ namespace Abat.URLShortener.Controllers
 	[ApiController]
 	public class ShortenedUrlController : ControllerBase
 	{
-		private readonly IShortenedUrlService _shortenedUrlService;
+		private readonly IShortenedUrlRepository _shortenedUrlRepository;
 
-        public ShortenedUrlController(IShortenedUrlService shortenedUrlService)
+        public ShortenedUrlController(IShortenedUrlRepository shortenedUrlRepository)
         {
-			_shortenedUrlService = shortenedUrlService;
+			_shortenedUrlRepository = shortenedUrlRepository;
         }
 
 		[HttpGet]
-		[Route("{shortUrlIdentifier:alpha}")]
-		public ActionResult RedirectToTargetUrl(string shortUrlIdentifier)
+		[Route("{shortUrlIdentifier}")]
+		public async Task<ActionResult> RedirectToTargetUrl(string shortUrlIdentifier)
 		{
-			var foundShortenedUrl = _shortenedUrlService.Get(shortUrlIdentifier);
+			var foundShortenedUrl = await _shortenedUrlRepository.GetAsync(shortUrlIdentifier);
 			if (foundShortenedUrl != null)
 			{
 				if (foundShortenedUrl.IsExpired())
 				{
-					_shortenedUrlService.Delete(foundShortenedUrl.Id);
+					await _shortenedUrlRepository.DeleteAsync(foundShortenedUrl.Id);
 
 					return NotFound();
 				}
@@ -35,17 +35,17 @@ namespace Abat.URLShortener.Controllers
 		}
 
 		[HttpPost]
-		[Route("api/Add")]
-		public void AddShortenedUrl(ShortenedUrl shortenedUrl)
+		[Route("api/ShortenedUrl/Add")]
+		public Task AddShortenedUrl(ShortenedUrlDto shortenedUrl)
 		{
-			_shortenedUrlService.Add(shortenedUrl);
+			return _shortenedUrlRepository.AddAsync(shortenedUrl.MapToEntity());
 		}
 
 		[HttpPost]
-		[Route("api/Delete/{id:int}")]
-		public void DeleteShortenedUrl(int id)
+		[Route("api/ShortenedUrl/Delete/{id:int}")]
+		public Task DeleteShortenedUrl(int id)
 		{
-			_shortenedUrlService.Delete(id);
+			return _shortenedUrlRepository.DeleteAsync(id);
 		}
 	}
 }

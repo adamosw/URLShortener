@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abat.URLShortener", "Abat.URLShortener\Abat.URLShortener.csproj", "{AAE7C273-C7B9-405D-AD67-FA1618281D7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abat.URLShortener", "Abat.URLShortener\Abat.URLShortener.csproj", "{AAE7C273-C7B9-405D-AD67-FA1618281D7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abat.URLShortener.Core", "Abat.URLShortener.Core\Abat.URLShortener.Core.csproj", "{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abat.URLShortener.Core", "Abat.URLShortener.Core\Abat.URLShortener.Core.csproj", "{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abat.URLShortener.Infrastructure", "Abat.URLShortener.Infrastructure\Abat.URLShortener.Infrastructure.csproj", "{E55AE583-F007-400D-8156-A1EFAE350817}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E55AE583-F007-400D-8156-A1EFAE350817}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E55AE583-F007-400D-8156-A1EFAE350817}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E55AE583-F007-400D-8156-A1EFAE350817}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E55AE583-F007-400D-8156-A1EFAE350817}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,6 +14,11 @@ namespace Abat.URLShortener.Core.Entities
 			if (!targetUrl.IsUrl())
 				throw new ArgumentException("Invalid URL format.");
 
+            if (!targetUrl.Contains("http://") && !targetUrl.Contains("https://"))
+            {
+                targetUrl = $"https://{targetUrl}";
+            }
+
 			ShortUrlIdentifier = shortUrlIdentifier;
 			TargetUrl = targetUrl;
             ExpirationDate = expirationDate;
