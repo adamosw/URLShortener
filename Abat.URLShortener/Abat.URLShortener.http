@@ -1,0 +1,6 @@
+@Abat.URLShortener_HostAddress = http://localhost:5199
+
+GET {{Abat.URLShortener_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

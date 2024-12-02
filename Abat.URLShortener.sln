@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abat.URLShortener", "Abat.URLShortener\Abat.URLShortener.csproj", "{AAE7C273-C7B9-405D-AD67-FA1618281D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Abat.URLShortener.Core", "Abat.URLShortener.Core\Abat.URLShortener.Core.csproj", "{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AAE7C273-C7B9-405D-AD67-FA1618281D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAE7C273-C7B9-405D-AD67-FA1618281D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAE7C273-C7B9-405D-AD67-FA1618281D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAE7C273-C7B9-405D-AD67-FA1618281D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5211DAFD-A9DD-4C2A-AB43-25240C41C5D6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {101B4820-BD1E-4BD7-B6D2-C80DBB1092FF}
+	EndGlobalSection
+EndGlobal
