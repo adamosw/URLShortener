@@ -27,9 +27,9 @@ namespace Abat.URLShortener.Infrastructure
 			return shortenedUrl.ShortUrlIdentifier;
 		}
 
-		public async Task DeleteAsync(int id)
+		public async Task DeleteAsync(string shortUrlIdentifier)
 		{
-			var exisitingUrl = await _context.ShortenedUrls.SingleOrDefaultAsync(x => x.Id == id);
+			var exisitingUrl = await _context.ShortenedUrls.SingleOrDefaultAsync(x => x.ShortUrlIdentifier == shortUrlIdentifier);
 			if (exisitingUrl != null)
 			{
 				_context.ShortenedUrls.Remove(exisitingUrl);

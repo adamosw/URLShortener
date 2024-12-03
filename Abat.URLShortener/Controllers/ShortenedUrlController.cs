@@ -34,7 +34,7 @@ namespace Abat.URLShortener.Controllers
 			{
 				if (foundShortenedUrl.IsExpired())
 				{
-					await _shortenedUrlRepository.DeleteAsync(foundShortenedUrl.Id);
+					await _shortenedUrlRepository.DeleteAsync(foundShortenedUrl.ShortUrlIdentifier);
 
 					_logger.LogInformation($"RedirectToTargetUrl handled, url expired");
 
@@ -72,12 +72,12 @@ namespace Abat.URLShortener.Controllers
 		}
 
 		[HttpPost]
-		[Route("api/ShortenedUrl/Delete/{id:int}")]
-		public async Task DeleteShortenedUrl(int id)
+		[Route("api/ShortenedUrl/Delete/{shortUrlIdentifier}")]
+		public async Task DeleteShortenedUrl(string shortUrlIdentifier)
 		{
-			_logger.LogInformation($"DeleteShortenedUrl invoked, id: {id}");
+			_logger.LogInformation($"DeleteShortenedUrl invoked, shortUrlIdentifier: {shortUrlIdentifier}");
 
-			await _shortenedUrlRepository.DeleteAsync(id);
+			await _shortenedUrlRepository.DeleteAsync(shortUrlIdentifier);
 
 			_logger.LogInformation("DeleteShortenedUrl handled");
 		}
